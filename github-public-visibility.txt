@@ -1,0 +1,16 @@
+This is intentional just a .txt because it is dangerous.
+
+Use me first:
+
+gh repo list RadEZorack --visibility private --limit 100
+
+Use me if number looks acceptable
+
+gh repo list RadEZorack --visibility private --limit 100 \
+  --json nameWithOwner \
+  -q '.[].nameWithOwner' | \
+  xargs -n 1 gh repo edit --visibility public --accept-visibility-change-consequences
+
+Double check this is now zero:
+
+gh repo list RadEZorack --visibility private --limit 100
